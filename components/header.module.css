@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 24px;
+  background-color: #f7f3ec;
+ 
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+}
+
+.nav {
+  align-items: center;
+  animation: fadeIn 1.5s ease-in-out;
+  padding: 20px;
+  border-radius: 23px 23px 23px 23px;
+  width: 100%;
+  background-color: #fcad6dbf;
+  display: table-cell;
+ 
+}
+
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* для мобильного меню */
+.mobileMenuButton {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #222;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+  }
+
+  .menu.open {
+    display: flex;
+  }
+
+  .mobileMenuButton {
+    display: block;
+  }
+
+  .nav {
+    justify-content: space-between;
+    width: 100%;
+  }
+}

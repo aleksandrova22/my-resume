@@ -1,0 +1,126 @@
+.section {
+  padding: 0px 24px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f3ec;
+  text-align: center;
+  width: 100%;
+
+}
+
+.content {
+  background: linear-gradient(135deg,
+      #f7e169 0%,
+      #f7f3ec 50%,
+      #fcad6d 100%);
+  align-items: center;
+  padding: 20px;
+  border-radius: 23px 23px 23px 23px;
+  width: 100%;
+  /* height: 100%; */
+  gap: 30px;
+  display: table-cell;
+
+}
+
+
+.info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.8rem;
+  color: #2c3e50;
+  line-height: 0.8;
+}
+
+.profile {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.downloadButton {
+  background-color: #fcad6d;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+
+  &:hover {
+    background-color: #e0b88c;
+    transform: scale(1.05);
+  }
+}
+
+.profilePhoto {
+  width: 220px;
+  height: 220px;
+  border-radius: 23%;
+  align-items: center;
+  border: 2px solid white;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 1s ease;
+  cursor: pointer;
+  aspect-ratio: 1;
+
+  &:hover {
+  transform: scale(1.1);
+  transform: scale(1.05);
+}
+
+}
+
+
+.image {
+  max-width: 80%;
+  height: auto;
+
+}
+
+.pictures {
+  width: 220px;
+  height: 220px;
+  align-items: center;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+
+@media (max-width: 1024px) {
+ 
+  .profilePhoto {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+
+  .profilePhoto {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .profilePhoto {
+    width: 100px;
+    height: 100px;
+  }
+}
