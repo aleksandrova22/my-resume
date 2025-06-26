@@ -3,11 +3,13 @@ import { motion } from 'framer-motion';
 import styles from './home.module.css';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { Box, Modal } from '@mui/material';
 
 export default function Home() {
 
   const [isVisible, setIsVisible] = useState(true);
   const [isVisible2, setIsVisible2] = useState(true);
+  const [closeModal, setCloseModal] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,11 +22,17 @@ export default function Home() {
     return () => { clearInterval(interval); clearInterval(interval2); } // очистка интервала
   }, []);
 
-
-
   const handleDownload = () => {
     window.open('/resume.pdf', '_blank');
   };
+  const handleOpen = () => {
+    setCloseModal(true);
+  };
+
+  const handleClose = () => {
+    setCloseModal(false);
+  };
+
 
   return <>
     <section id="home" className={styles.section}>
@@ -51,7 +59,7 @@ export default function Home() {
                   ease: isVisible2 ? [0.36, 1, 0.13, 1] : [0.43, 0.13, 0.23, 0.96]
                 }
               }}
-              
+
             >
               <Image
                 src="/frontend.png"
@@ -71,6 +79,7 @@ export default function Home() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 1, type: 'spring', stiffness: 100 }}
+              onClick={handleOpen}
             />
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
@@ -83,7 +92,7 @@ export default function Home() {
                   ease: isVisible ? [0.22, 1, 0.36, 1] : [0.43, 0.13, 0.23, 0.96]
                 }
               }}
-              
+
             >
               <Image
                 src="/backend.png"
@@ -112,6 +121,27 @@ export default function Home() {
 
       </div>
     </section>
+    {closeModal &&
+      <Modal
+        open={closeModal}
+        onClose={handleClose}
+      // aria-labelledby="modal-modal-title"
+      // aria-describedby="modal-modal-description"
+     
+      >
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', alignSelf: 'center', width: '100%'}}>
+          <Image
+            src="/my-photo-modal.jpg"
+            alt="photo"
+            className={styles.photoModal}
+            width={600}
+            height={600}
+            onClick={handleClose}
+          />
+        </Box>
+      </Modal>
+    }
+
   </>
 };
 

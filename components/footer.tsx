@@ -7,17 +7,18 @@ export function Footer() {
   return <>
     <Box
       sx={{
-        py: 3,
+       py: 3,
         px: 2,
         display: 'flex',
-        width: '100%',
+       // width: '100%',
         flexWrap: 'wrap',
-        flexDirection: 'column',
+         //flexDirection: { xm: 'column', xs: 'row' },
         // justifyContent: 'flex-start',
-        alignItems: 'center',
+       justifyContent: { xs: 'flex-start', xm: 'center' },
+       alignItems: 'center',
         mx: 'auto',
         gap: 4,
-        margin: 4
+        margin: 4,
 
       }}
     >
